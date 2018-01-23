@@ -28,6 +28,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.registries.GameData;
+import net.minecraftforge.registries.IForgeRegistry;
 
 @Mod(modid = Main.MODID, name = Main.NAME, version = Main.VERSION)
 public class Main
@@ -36,7 +37,7 @@ public class Main
 	public static final String NAME = "Dark Cloud 2 Monica";
 	public static final String VERSION = "1.0";
 
-	private static Logger logger;
+	public static Logger logger;
 
 	public static Item  swordBroadsword, swordKitchenKnife, swordWiseOwl, swordChoora, swordSerpentSlicer, swordSevenBranch,
 	swordTsukikage, swordLambs, swordSmall, swordSargatanas, swordDarkCloud;
@@ -62,14 +63,22 @@ public class Main
 	public void init(FMLInitializationEvent event)
 	{
 		// Add synthesis recipe
-//		IRecipe recipe = new NewBuildUpRecipe()
+//		IRecipe recipe = new BuildUpRecipe()
 //				.setRegistryName(new ResourceLocation("monica:recipe_buildup"));
-//		
+		
+//		This causes the game to hang when loading a world, before the "Building Terrain" step.
+//		Commenting out all the code in the recipe does not change whether the game hangs.
 //		GameData.register_impl(recipe);
-//
+		
+//		This also causes the game to hang:
+//		IForgeRegistry<IRecipe> registry = GameRegistry.findRegistry(recipe.getRegistryType());
+//		registry.register(recipe);
+		
+//		This doesn't appear to do anything in game(?)
 //		CraftingHelper.register(new ResourceLocation("monica:recipe_synthesis"), new SynthesisRecipe.Factory());
 //		CraftingHelper.register(new ResourceLocation("monica:recipe_buildup"), new BuildUpRecipe.Factory());
 
+//		I've also tried declaring these Factories in my _factory.json and the recipes still do not appear to be present in game.
 		
 		//Add spectrumization recipes
 		GameRegistry.addShapelessRecipe(new ResourceLocation("monica:crystal_attack_spectrumized"), new ResourceLocation(""),

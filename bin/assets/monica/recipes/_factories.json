@@ -2,7 +2,7 @@
 	"ingredients": {
 	},
 	"recipes": {
-		"recipesynthesis": "com.monica.main.SynthesisRecipe$Factory",
-		"recipebuildup": "com.monica.main.BuildUpRecipe$Factory"
+		"recipe_synthesis": "com.monica.main.SynthesisRecipe$Factory",
+		"recipe_buildup": "com.monica.main.BuildUpRecipe$Factory"
 	}
 }
