@@ -1,8 +1,0 @@
-{
-	"ingredients": {
-	},
-	"recipes": {
-		"recipe_synthesis": "com.monica.main.SynthesisRecipe$Factory",
-		"recipe_buildup": "com.monica.main.BuildUpRecipe$Factory"
-	}
-}

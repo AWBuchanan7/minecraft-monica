@@ -2,6 +2,7 @@ package com.monica.main;
 
 import com.google.gson.JsonObject;
 
+import net.minecraft.init.Items;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -17,27 +18,38 @@ public class BuildUpRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements 
 	private String[] synthesisStats = {"Attack", "Durable", "Flame", "Chill", "Lightning", "Cyclone", "Smash", "Exorcism", "Beast", "Scale"};
 	private NBTBase nbt = new NBTTagCompound();
 	private Item sword = null;
+	ItemStack finalResult = new ItemStack(Main.crystalDurableSpectrumized);
 		
 	@Override
 	public boolean matches(InventoryCrafting inventory, World world) {
 
 		ItemStack oldSword = null;
 
+		for (int i = 0; i < inventory.getSizeInventory(); i++) {
+			if(inventory.getStackInSlot(i) != null) {
+				ItemStack itemStack = inventory.getStackInSlot(i);
+				if (itemStack.getItem() != Items.AIR && !ModSword.class.isInstance(((Object)itemStack.getItem()))) {
+					return false;
+				}
+			}
+		}
+		
 		for (int i = 0; i < inventory.getSizeInventory(); i++) {         
 			if(inventory.getStackInSlot(i) != null) {
 				ItemStack itemStack = inventory.getStackInSlot(i);
 
-				if (itemStack.getItem() != null && ModSword.class.isInstance(((Object)itemStack.getItem())) ) {
-					oldSword = itemStack;
-					if (oldSword != null && oldSword.getTagCompound() != null) {
-						nbt = oldSword.getTagCompound().copy();
-					} else {
-						((ModSword)oldSword.getItem()).initSynthesis(oldSword);
+				if (itemStack.getItem() != null) {
+					if (ModSword.class.isInstance(((Object)itemStack.getItem())) ) {
+						oldSword = itemStack;
+						if (oldSword != null && oldSword.getTagCompound() != null) {
+							nbt = oldSword.getTagCompound().copy();
+						} else {
+							((ModSword)oldSword.getItem()).initSynthesis(oldSword);
+						}
+						sword = oldSword.getItem();
+						return true;
 					}
-					sword = oldSword.getItem();
-					return true;
 				}
-
 			}
 		}
 
@@ -63,27 +75,23 @@ public class BuildUpRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements 
 		 *  Add build up checks here
 		 */
 		
-		ItemStack result = new ItemStack(sword);
-		return result.copy();
+		finalResult = new ItemStack(sword);
+		if (attackValue > 4.0F) {
+			finalResult = new ItemStack(Main.swordDarkCloud);
+		}
+		finalResult.setTagCompound((NBTTagCompound) nbt);
+		return finalResult.copy();
 	}
 
 	@Override
 	public ItemStack getRecipeOutput() {
-		return null;
+		finalResult.setTagCompound((NBTTagCompound) nbt);
+		return finalResult;
 	}
 	
 	@Override
 	public boolean canFit(int width, int height) {
 		return width * height >= 1;
 	}
-	
-	public static class Factory implements IRecipeFactory {
-
-		@Override
-		public IRecipe parse(final JsonContext context, final JsonObject json) {
-
-			return new BuildUpRecipe();
-		}
-	}
-	
+		
 }

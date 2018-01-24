@@ -26,7 +26,7 @@ public class SynthesisRecipe extends IForgeRegistryEntry.Impl<IRecipe> implement
 	private NBTBase nbt = new NBTTagCompound();
 	private Item sword = null;
 	ItemStack synthCrystal = null;
-	ItemStack finalResult;
+	ItemStack finalResult = new ItemStack(Main.crystalDurableSpectrumized);
 	
 	@Override
 	public boolean matches(InventoryCrafting inventory, World world) {
@@ -90,15 +90,6 @@ public class SynthesisRecipe extends IForgeRegistryEntry.Impl<IRecipe> implement
 	@Override
 	public boolean canFit(int width, int height) {
 		return width * height > 1;
-	}
-
-	public static class Factory implements IRecipeFactory {
-
-		@Override
-		public IRecipe parse(final JsonContext context, final JsonObject json) {
-
-			return new SynthesisRecipe();
-		}
 	}
 
 }

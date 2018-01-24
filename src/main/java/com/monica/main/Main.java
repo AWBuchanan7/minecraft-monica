@@ -19,10 +19,12 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -58,7 +60,22 @@ public class Main
 		createSwords();
 
 	}
-
+	
+	@Mod.EventBusSubscriber(modid = Main.MODID)
+	public static class RegistryEventHandler {
+		@SubscribeEvent
+		public static void registerRecipes(RegistryEvent.Register<IRecipe> event)
+		{
+			IRecipe buildup = new BuildUpRecipe();
+			buildup.setRegistryName(new ResourceLocation(Main.MODID, "recipe_buildup"));
+			IRecipe synthesis = new SynthesisRecipe()
+					.setRegistryName(new ResourceLocation(Main.MODID, "recipe_synthesis"));
+	
+			(event.getRegistry()).register(buildup);
+			(event.getRegistry()).register(synthesis);
+		}
+	}
+	
 	@EventHandler
 	public void init(FMLInitializationEvent event)
 	{
@@ -73,12 +90,6 @@ public class Main
 //		This also causes the game to hang:
 //		IForgeRegistry<IRecipe> registry = GameRegistry.findRegistry(recipe.getRegistryType());
 //		registry.register(recipe);
-		
-//		This doesn't appear to do anything in game(?)
-//		CraftingHelper.register(new ResourceLocation("monica:recipe_synthesis"), new SynthesisRecipe.Factory());
-//		CraftingHelper.register(new ResourceLocation("monica:recipe_buildup"), new BuildUpRecipe.Factory());
-
-//		I've also tried declaring these Factories in my _factory.json and the recipes still do not appear to be present in game.
 		
 		//Add spectrumization recipes
 		GameRegistry.addShapelessRecipe(new ResourceLocation("monica:crystal_attack_spectrumized"), new ResourceLocation(""),
