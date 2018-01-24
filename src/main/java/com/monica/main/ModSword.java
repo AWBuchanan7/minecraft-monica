@@ -15,6 +15,7 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
@@ -27,6 +28,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 
 public class ModSword extends ItemSword {
+	private String swordName;
 	private ToolMaterial toolMaterial;
 	private boolean hasToolTip = false;
 	private boolean hasEffect = false;
@@ -111,5 +113,15 @@ public class ModSword extends ItemSword {
 			}
 		}
     }
+	
+	@Override
+	public Item setUnlocalizedName(String x) {
+		this.swordName = x;
+		return super.setUnlocalizedName(x);
+	}
+	
+	public String getSwordName() {
+		return this.swordName;
+	}
 	
 }

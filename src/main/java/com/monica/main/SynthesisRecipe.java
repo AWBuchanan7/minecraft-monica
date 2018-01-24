@@ -63,6 +63,8 @@ public class SynthesisRecipe extends IForgeRegistryEntry.Impl<IRecipe> implement
 
 	@Override
 	public ItemStack getCraftingResult(InventoryCrafting inventory) {
+		Float valueIncrease;
+			
 		Iterator<String> iteratorStats = (Arrays.asList(synthesisStats)).iterator();
 		Iterator<Item> iteratorCrystals = (Arrays.asList(synthesisCrystals)).iterator();
 
@@ -71,10 +73,16 @@ public class SynthesisRecipe extends IForgeRegistryEntry.Impl<IRecipe> implement
 			Item crystal = (Item)iteratorCrystals.next();
 
 			if (synthCrystal.getItem().equals(crystal)) {
+				if (stat == "Attack" || stat == "Durable") {
+					valueIncrease = 2.0F;
+				} else {
+					valueIncrease = 3.0F;
+				}
+				
 				float value = ((NBTTagCompound) nbt).getFloat(stat);
 				finalResult = new ItemStack(sword);
 				finalResult.setTagCompound((NBTTagCompound) nbt);
-				finalResult.getTagCompound().setFloat(stat, value + 1.0F);
+				finalResult.getTagCompound().setFloat(stat, value + valueIncrease);
 				return finalResult.copy();
 			}
 		}

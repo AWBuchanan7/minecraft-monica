@@ -9,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.common.crafting.IRecipeFactory;
 import net.minecraftforge.common.crafting.JsonContext;
@@ -76,9 +77,22 @@ public class BuildUpRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements 
 		 */
 		
 		finalResult = new ItemStack(sword);
-		if (attackValue > 4.0F) {
-			finalResult = new ItemStack(Main.swordDarkCloud);
+		if (((ModSword)sword).getSwordName() == "sword_broadsword"
+				&& attackValue > 29.0F
+				&& chillValue > 5.0F
+				&& lightningValue > 14.0F
+				&& scaleValue > 27.0F) {
+			finalResult = new ItemStack(Main.swordKitchenKnife);
 		}
+		
+		if (((ModSword)sword).getSwordName() == "sword_broadsword"
+				&& attackValue > 24.0F
+				&& flameValue > 14.0F
+				&& scaleValue > 14.0F
+				&& beastValue > 23.0F) {
+			finalResult = new ItemStack(Main.swordWiseOwl);
+		}
+		
 		finalResult.setTagCompound((NBTTagCompound) nbt);
 		return finalResult.copy();
 	}
