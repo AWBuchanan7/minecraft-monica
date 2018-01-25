@@ -72,11 +72,11 @@ public class BuildUpRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements 
 		float beastValue = ((NBTTagCompound) nbt).getFloat(synthesisStats[8]);
 		float scaleValue = ((NBTTagCompound) nbt).getFloat(synthesisStats[9]);
 
-		/* To Do:
-		 *  Add build up checks here
-		 */
-		
 		finalResult = new ItemStack(sword);
+		
+		/*
+		 * TIER THREE
+		 */
 		if (((ModSword)sword).getSwordName() == "sword_broadsword"
 				&& attackValue > 29.0F
 				&& chillValue > 5.0F
@@ -91,6 +91,62 @@ public class BuildUpRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements 
 				&& scaleValue > 14.0F
 				&& beastValue > 23.0F) {
 			finalResult = new ItemStack(Main.swordWiseOwl);
+		}
+		
+		/*
+		 * TIER FOUR
+		 */
+		if (((ModSword)sword).getSwordName() == "sword_kitchenknife"
+				&& attackValue > 48.0F
+				&& lightningValue > 49.0F
+				&& scaleValue > 49.0F) {
+			finalResult = new ItemStack(Main.swordSerpentSlicer);
+		}
+		
+		if (((ModSword)sword).getSwordName() == "sword_wiseowl"
+				&& attackValue > 80.0F
+				&& cycloneValue > 76.0F
+				&& beastValue > 76.0F
+				&& exorcismValue > 14.0F) {
+			finalResult = new ItemStack(Main.swordLambs);
+		}
+		
+		if (((ModSword)sword).getSwordName() == "sword_wiseowl"
+				&& attackValue > 80.0F
+				&& cycloneValue > 53.0F
+				&& lightningValue > 53.0F
+				&& beastValue > 53.0F
+				&& scaleValue > 53.0F
+				&& exorcismValue > 53.0F) {
+			finalResult = new ItemStack(Main.swordSmall);
+		}
+		
+		/*
+		 * TIER FIVE
+		 */
+		if (((ModSword)sword).getSwordName() == "sword_serpentslicer"
+				&& attackValue > 79.0F
+				&& flameValue > 44.0F
+				&& chillValue > 44.0F
+				&& smashValue > 44.0F
+				&& exorcismValue > 44.0F
+				&& beastValue > 44.0F) {
+			finalResult = new ItemStack(Main.swordSevenBranch);
+		}
+		
+		if (((ModSword)sword).getSwordName() == "sword_serpentslicer"
+				&& attackValue > 79.0F
+				&& lightningValue > 89.0F
+				&& scaleValue > 89.0F) {
+			finalResult = new ItemStack(Main.swordTsukikage);
+		}
+		
+		if (((ModSword)sword).getSwordName() == "sword_serpentslicer"
+				&& attackValue > 80.0F
+				&& chillValue > 80.0F
+				&& smashValue > 80.0F
+				&& scaleValue > 71.0F) {
+			finalResult = new ItemStack(Main.swordSargatanas);
 		}
 		
 		finalResult.setTagCompound((NBTTagCompound) nbt);

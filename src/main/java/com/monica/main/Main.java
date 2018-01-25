@@ -41,7 +41,7 @@ public class Main
 
 	public static Logger logger;
 
-	public static Item  swordBroadsword, swordKitchenKnife, swordWiseOwl, swordChoora, swordSerpentSlicer, swordSevenBranch,
+	public static Item  swordBroadsword, swordSax, swordKitchenKnife, swordWiseOwl, swordChoora, swordSerpentSlicer, swordSevenBranch,
 	swordTsukikage, swordLambs, swordSmall, swordSargatanas, swordDarkCloud;
 
 	public static Item crystalAttack, crystalAttackSpectrumized, crystalBeast, crystalBeastSpectrumized, crystalChill, crystalChillSpectrumized, crystalCyclone, crystalCycloneSpectrumized,
@@ -144,6 +144,9 @@ public class Main
 		ModelResourceLocation itemModelResourceLocation = new ModelResourceLocation("monica:sword_broadsword");
 		ModelLoader.setCustomModelResourceLocation(swordBroadsword, DEFAULT_ITEM_SUBTYPE, itemModelResourceLocation);
 
+		itemModelResourceLocation = new ModelResourceLocation("monica:sword_sax");
+		ModelLoader.setCustomModelResourceLocation(swordSax, DEFAULT_ITEM_SUBTYPE, itemModelResourceLocation);
+		
 		itemModelResourceLocation = new ModelResourceLocation("monica:sword_kitchenknife");
 		ModelLoader.setCustomModelResourceLocation(swordKitchenKnife, DEFAULT_ITEM_SUBTYPE, itemModelResourceLocation);
 
@@ -242,7 +245,6 @@ public class Main
 		ForgeRegistries.ITEMS.register(crystalAttackSpectrumized);
 
 
-
 		crystalBeast = new Item()
 				.setUnlocalizedName("crystal_beast")
 				.setCreativeTab(CreativeTabs.MATERIALS);
@@ -265,7 +267,6 @@ public class Main
 		ForgeRegistries.ITEMS.register(crystalChillSpectrumized);
 
 
-
 		crystalCyclone = new Item()
 				.setUnlocalizedName("crystal_cyclone")
 				.setCreativeTab(CreativeTabs.MATERIALS);
@@ -276,7 +277,6 @@ public class Main
 				.setUnlocalizedName("crystal_cyclone_spectrumized");
 		crystalCycloneSpectrumized.setRegistryName("crystal_cyclone_spectrumized");
 		ForgeRegistries.ITEMS.register(crystalCycloneSpectrumized);
-
 
 
 		crystalDurable = new Item()
@@ -290,7 +290,6 @@ public class Main
 		ForgeRegistries.ITEMS.register(crystalDurableSpectrumized);
 
 
-
 		crystalExorcism = new Item()
 				.setUnlocalizedName("crystal_exorcism")
 				.setCreativeTab(CreativeTabs.MATERIALS);
@@ -300,7 +299,6 @@ public class Main
 		crystalExorcismSpectrumized = new Item().setUnlocalizedName("crystal_exorcism_spectrumized");
 		crystalExorcismSpectrumized.setRegistryName("crystal_exorcism_spectrumized");
 		ForgeRegistries.ITEMS.register(crystalExorcismSpectrumized);
-
 
 
 		crystalFlame = new Item()
@@ -314,7 +312,6 @@ public class Main
 		ForgeRegistries.ITEMS.register(crystalFlameSpectrumized);
 
 
-
 		crystalLightning = new Item()
 				.setUnlocalizedName("crystal_lightning")
 				.setCreativeTab(CreativeTabs.MATERIALS);
@@ -324,7 +321,6 @@ public class Main
 		crystalLightningSpectrumized = new Item().setUnlocalizedName("crystal_lightning_spectrumized");
 		crystalLightningSpectrumized.setRegistryName("crystal_lightning_spectrumized");
 		ForgeRegistries.ITEMS.register(crystalLightningSpectrumized);
-
 
 
 		crystalScale = new Item()
@@ -366,6 +362,10 @@ public class Main
 		 * TIER FOUR
 		 */
 
+		swordSax = (ModSword)(new ModSword(tierFour).setUnlocalizedName("sword_sax"));
+		swordSax.setRegistryName("sword_sax");
+		ForgeRegistries.ITEMS.register(swordSax);
+		
 		swordKitchenKnife = (ModSword)(new ModSword(tierFour).setUnlocalizedName("sword_kitchenknife"));
 		swordKitchenKnife.setRegistryName("sword_kitchenknife");
 		ForgeRegistries.ITEMS.register(swordKitchenKnife);
