@@ -41,7 +41,7 @@ public class Main
 
 	public static Logger logger;
 
-	public static Item  swordBroadsword, swordSax, swordKitchenKnife, swordWiseOwl, swordChoora, swordSerpentSlicer, swordSevenBranch,
+	public static Item swordBroadsword, swordSax, swordKitchenKnife, swordWiseOwl, swordChoora, swordSerpentSlicer, swordSevenBranch,
 	swordTsukikage, swordLambs, swordSmall, swordSargatanas, swordDarkCloud;
 
 	public static Item crystalAttack, crystalAttackSpectrumized, crystalBeast, crystalBeastSpectrumized, crystalChill, crystalChillSpectrumized, crystalCyclone, crystalCycloneSpectrumized,
@@ -60,37 +60,10 @@ public class Main
 		createSwords();
 
 	}
-	
-	@Mod.EventBusSubscriber(modid = Main.MODID)
-	public static class RegistryEventHandler {
-		@SubscribeEvent
-		public static void registerRecipes(RegistryEvent.Register<IRecipe> event)
-		{
-			IRecipe buildup = new BuildUpRecipe();
-			buildup.setRegistryName(new ResourceLocation(Main.MODID, "recipe_buildup"));
-			IRecipe synthesis = new SynthesisRecipe()
-					.setRegistryName(new ResourceLocation(Main.MODID, "recipe_synthesis"));
-	
-			(event.getRegistry()).register(buildup);
-			(event.getRegistry()).register(synthesis);
-		}
-	}
-	
+		
 	@EventHandler
 	public void init(FMLInitializationEvent event)
-	{
-		// Add synthesis recipe
-//		IRecipe recipe = new BuildUpRecipe()
-//				.setRegistryName(new ResourceLocation("monica:recipe_buildup"));
-		
-//		This causes the game to hang when loading a world, before the "Building Terrain" step.
-//		Commenting out all the code in the recipe does not change whether the game hangs.
-//		GameData.register_impl(recipe);
-		
-//		This also causes the game to hang:
-//		IForgeRegistry<IRecipe> registry = GameRegistry.findRegistry(recipe.getRegistryType());
-//		registry.register(recipe);
-		
+	{		
 		//Add spectrumization recipes
 		GameRegistry.addShapelessRecipe(new ResourceLocation("monica:crystal_attack_spectrumized"), new ResourceLocation(""),
 				new ItemStack(crystalAttackSpectrumized),
@@ -137,10 +110,28 @@ public class Main
 	@EventHandler
 	public void initClientOnly(FMLPreInitializationEvent event)
 	{
-		final int DEFAULT_ITEM_SUBTYPE = 0;
-
 		assignCrystalModels();
+		assignSwordModels();	
+	}
+	
+	@Mod.EventBusSubscriber(modid = Main.MODID)
+	public static class RegistryEventHandler {
+		@SubscribeEvent
+		public static void registerRecipes(RegistryEvent.Register<IRecipe> event)
+		{
+			IRecipe buildup = new BuildUpRecipe();
+			buildup.setRegistryName(new ResourceLocation(Main.MODID, "recipe_buildup"));
+			IRecipe synthesis = new SynthesisRecipe()
+					.setRegistryName(new ResourceLocation(Main.MODID, "recipe_synthesis"));
+	
+			(event.getRegistry()).register(buildup);
+			(event.getRegistry()).register(synthesis);
+		}
+	}
 
+	private void assignSwordModels() {
+		final int DEFAULT_ITEM_SUBTYPE = 0;
+		
 		ModelResourceLocation itemModelResourceLocation = new ModelResourceLocation("monica:sword_broadsword");
 		ModelLoader.setCustomModelResourceLocation(swordBroadsword, DEFAULT_ITEM_SUBTYPE, itemModelResourceLocation);
 
@@ -177,6 +168,7 @@ public class Main
 		itemModelResourceLocation = new ModelResourceLocation("monica:sword_darkcloud");
 		ModelLoader.setCustomModelResourceLocation(swordDarkCloud, DEFAULT_ITEM_SUBTYPE, itemModelResourceLocation);
 
+		
 	}
 
 	private void assignCrystalModels() {

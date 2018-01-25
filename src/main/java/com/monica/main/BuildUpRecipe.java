@@ -78,18 +78,27 @@ public class BuildUpRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements 
 		 * TIER THREE
 		 */
 		if (((ModSword)sword).getSwordName() == "sword_broadsword"
-				&& attackValue > 29.0F
-				&& chillValue > 5.0F
-				&& lightningValue > 14.0F
-				&& scaleValue > 27.0F) {
+				&& attackValue > 28.0F
+				&& cycloneValue > 27.0F
+				&& beastValue > 27.0F
+				&& exorcismValue > 18.0F
+				&& scaleValue > 8.0F) {
+			finalResult = new ItemStack(Main.swordSax);
+		}
+		
+		if (((ModSword)sword).getSwordName() == "sword_broadsword"
+				&& attackValue > 28.0F
+				&& chillValue > 4.0F
+				&& lightningValue > 13.0F
+				&& scaleValue > 26.0F) {
 			finalResult = new ItemStack(Main.swordKitchenKnife);
 		}
 		
 		if (((ModSword)sword).getSwordName() == "sword_broadsword"
-				&& attackValue > 24.0F
-				&& flameValue > 14.0F
-				&& scaleValue > 14.0F
-				&& beastValue > 23.0F) {
+				&& attackValue > 23.0F
+				&& flameValue > 13.0F
+				&& scaleValue > 13.0F
+				&& beastValue > 22.0F) {
 			finalResult = new ItemStack(Main.swordWiseOwl);
 		}
 		
