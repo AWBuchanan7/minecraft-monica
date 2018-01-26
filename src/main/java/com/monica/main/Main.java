@@ -4,6 +4,11 @@ import javax.annotation.Nullable;
 
 import org.apache.logging.log4j.Logger;
 
+import com.monica.roguelike.ItemCrystal;
+import com.monica.roguelike.ItemSwords;
+
+import greymerk.roguelike.dungeon.Dungeon;
+import greymerk.roguelike.util.IWeighted;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -29,8 +34,6 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraftforge.registries.GameData;
-import net.minecraftforge.registries.IForgeRegistry;
 
 @Mod(modid = Main.MODID, name = Main.NAME, version = Main.VERSION)
 public class Main
@@ -41,7 +44,7 @@ public class Main
 
 	public static Logger logger;
 
-	public static Item swordBroadsword, swordSax, swordKitchenKnife, swordWiseOwl, swordChoora, swordSerpentSlicer, swordSevenBranch,
+	public static Item swordBaselard, swordBroadsword, swordSax, swordKitchenKnife, swordWiseOwl, swordChoora, swordSerpentSlicer, swordSevenBranch,
 	swordTsukikage, swordLambs, swordSmall, swordSargatanas, swordDarkCloud;
 
 	public static Item crystalAttack, crystalAttackSpectrumized, crystalBeast, crystalBeastSpectrumized, crystalChill, crystalChillSpectrumized, crystalCyclone, crystalCycloneSpectrumized,
@@ -114,6 +117,18 @@ public class Main
 		assignSwordModels();	
 	}
 	
+	@EventHandler
+	public void postInit(FMLPreInitializationEvent event)
+	{
+		for(int i = 0; i < 5; ++i) {
+			IWeighted<ItemStack> itemCrystal = new ItemCrystal(0, i);
+			Dungeon.addLootRule(itemCrystal, i, true, 3);
+			
+			IWeighted<ItemStack> itemSword = new ItemSwords(0, i);
+			Dungeon.addLootRule(itemSword, i, true, 1);
+		}
+	}
+	
 	@Mod.EventBusSubscriber(modid = Main.MODID)
 	public static class RegistryEventHandler {
 		@SubscribeEvent
@@ -132,7 +147,10 @@ public class Main
 	private void assignSwordModels() {
 		final int DEFAULT_ITEM_SUBTYPE = 0;
 		
-		ModelResourceLocation itemModelResourceLocation = new ModelResourceLocation("monica:sword_broadsword");
+		ModelResourceLocation itemModelResourceLocation = new ModelResourceLocation("monica:sword_baselard");
+		ModelLoader.setCustomModelResourceLocation(swordBaselard, DEFAULT_ITEM_SUBTYPE, itemModelResourceLocation);
+
+		itemModelResourceLocation = new ModelResourceLocation("monica:sword_broadsword");
 		ModelLoader.setCustomModelResourceLocation(swordBroadsword, DEFAULT_ITEM_SUBTYPE, itemModelResourceLocation);
 
 		itemModelResourceLocation = new ModelResourceLocation("monica:sword_sax");
@@ -341,7 +359,10 @@ public class Main
 		/*
 		 * TIER TWO
 		 */
-
+		swordBaselard = (ModSword)(new ModSword(tierTwo).setUnlocalizedName("sword_baselard"));
+		swordBaselard.setRegistryName("sword_baselard");
+		ForgeRegistries.ITEMS.register(swordBaselard);
+		
 		/*
 		 * TIER THREE
 		 */

@@ -75,6 +75,15 @@ public class BuildUpRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements 
 		finalResult = new ItemStack(sword);
 		
 		/*
+		 * TIER TWO
+		 */
+		if (((ModSword)sword).getSwordName() == "sword_baselard"
+				&& cycloneValue > 18.0F
+				&& exorcismValue > 18.0F) {
+			finalResult = new ItemStack(Main.swordBroadsword);
+		}
+		
+		/*
 		 * TIER THREE
 		 */
 		if (((ModSword)sword).getSwordName() == "sword_broadsword"
