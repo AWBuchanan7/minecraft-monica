@@ -25,7 +25,7 @@ public class ItemSwords extends ItemBase {
 			if (emptyCheck == 0) return null;
 
 			Item sword;
-			switch(rand.nextInt(2)){
+			switch(rand.nextInt(2)) {
 			case 0: sword = Main.swordBaselard;
 			default: sword = Main.swordGladius;
 			}
@@ -52,7 +52,7 @@ public class ItemSwords extends ItemBase {
 			}
 
 			ItemStack x = new ItemStack(Main.swordBroadsword);
-			switch(rand.nextInt(12)){
+			switch(rand.nextInt(12)) {
 			case 0: x = new ItemStack(Main.swordSax);
 			case 1: x = new ItemStack(Main.swordKitchenKnife);
 			case 2: x = new ItemStack(Main.swordWiseOwl);
@@ -70,7 +70,7 @@ public class ItemSwords extends ItemBase {
 			if (emptyCheck == 0) return null;
 			
 			ItemStack x = new ItemStack(Main.swordBroadsword);
-			switch(rand.nextInt(10)){
+			switch(rand.nextInt(10)) {
 			case 0: x = new ItemStack(Main.swordSax);
 			case 1: x = new ItemStack(Main.swordKitchenKnife);
 			case 2: x = new ItemStack(Main.swordWiseOwl);
@@ -85,7 +85,7 @@ public class ItemSwords extends ItemBase {
 	}
 
 	private String getRandomStat(int i) {
-		switch(i){
+		switch(i) {
 		case 0: return synthesisStats[0];
 		case 1: return synthesisStats[1];
 		case 2: return synthesisStats[2];
