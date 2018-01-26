@@ -1,9 +1,15 @@
+item.sword_gladius.name=Gladius
 item.sword_baselard.name=Baselard
 
-item.sword_wiseowl.name=Wise Owl Sword
+item.sword_cliffknife.name=Cliff Knife
 item.sword_broadsword.name=Broad Sword
+
 item.sword_sax.name=Sax
+item.sword_chopper.name=Chopper
+item.sword_sandbreaker.name=Sand Breaker
 item.sword_kitchenknife.name=Kitchen Knife
+item.sword_wiseowl.name=Wise Owl Sword
+
 item.sword_sevenbranch.name=Seven Branch Sword
 item.sword_tsukikage.name=Tsukikage
 item.sword_sargatanas.name=Sargatanas

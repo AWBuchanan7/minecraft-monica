@@ -44,7 +44,8 @@ public class Main
 
 	public static Logger logger;
 
-	public static Item swordBaselard, swordBroadsword, swordSax, swordKitchenKnife, swordWiseOwl, swordChoora, swordSerpentSlicer, swordSevenBranch,
+	//TODO: Gladius, Cliff Knife, Chopper, Sand Breaker
+	public static Item swordGladius, swordBaselard, swordCliffKnife, swordBroadsword, swordSax, swordChopper, swordSandBreaker, swordKitchenKnife, swordWiseOwl, swordChoora, swordSerpentSlicer, swordSevenBranch,
 	swordTsukikage, swordLambs, swordSmall, swordSargatanas, swordDarkCloud;
 
 	public static Item crystalAttack, crystalAttackSpectrumized, crystalBeast, crystalBeastSpectrumized, crystalChill, crystalChillSpectrumized, crystalCyclone, crystalCycloneSpectrumized,
@@ -61,7 +62,6 @@ public class Main
 		createToolMaterials();
 		createCrystals();
 		createSwords();
-
 	}
 		
 	@EventHandler
@@ -147,14 +147,26 @@ public class Main
 	private void assignSwordModels() {
 		final int DEFAULT_ITEM_SUBTYPE = 0;
 		
-		ModelResourceLocation itemModelResourceLocation = new ModelResourceLocation("monica:sword_baselard");
+		ModelResourceLocation itemModelResourceLocation = new ModelResourceLocation("monica:sword_gladius");
+		ModelLoader.setCustomModelResourceLocation(swordGladius, DEFAULT_ITEM_SUBTYPE, itemModelResourceLocation);
+		
+		itemModelResourceLocation = new ModelResourceLocation("monica:sword_baselard");
 		ModelLoader.setCustomModelResourceLocation(swordBaselard, DEFAULT_ITEM_SUBTYPE, itemModelResourceLocation);
 
+		itemModelResourceLocation = new ModelResourceLocation("monica:sword_cliffknife");
+		ModelLoader.setCustomModelResourceLocation(swordCliffKnife, DEFAULT_ITEM_SUBTYPE, itemModelResourceLocation);
+		
 		itemModelResourceLocation = new ModelResourceLocation("monica:sword_broadsword");
 		ModelLoader.setCustomModelResourceLocation(swordBroadsword, DEFAULT_ITEM_SUBTYPE, itemModelResourceLocation);
 
 		itemModelResourceLocation = new ModelResourceLocation("monica:sword_sax");
 		ModelLoader.setCustomModelResourceLocation(swordSax, DEFAULT_ITEM_SUBTYPE, itemModelResourceLocation);
+		
+		itemModelResourceLocation = new ModelResourceLocation("monica:sword_chopper");
+		ModelLoader.setCustomModelResourceLocation(swordChopper, DEFAULT_ITEM_SUBTYPE, itemModelResourceLocation);
+		
+		itemModelResourceLocation = new ModelResourceLocation("monica:sword_sandbreaker");
+		ModelLoader.setCustomModelResourceLocation(swordSandBreaker, DEFAULT_ITEM_SUBTYPE, itemModelResourceLocation);
 		
 		itemModelResourceLocation = new ModelResourceLocation("monica:sword_kitchenknife");
 		ModelLoader.setCustomModelResourceLocation(swordKitchenKnife, DEFAULT_ITEM_SUBTYPE, itemModelResourceLocation);
@@ -359,6 +371,10 @@ public class Main
 		/*
 		 * TIER TWO
 		 */
+		swordGladius = (ModSword)(new ModSword(tierTwo).setUnlocalizedName("sword_gladius"));
+		swordGladius.setRegistryName("sword_gladius");
+		ForgeRegistries.ITEMS.register(swordGladius);
+		
 		swordBaselard = (ModSword)(new ModSword(tierTwo).setUnlocalizedName("sword_baselard"));
 		swordBaselard.setRegistryName("sword_baselard");
 		ForgeRegistries.ITEMS.register(swordBaselard);
@@ -367,6 +383,10 @@ public class Main
 		 * TIER THREE
 		 */
 
+		swordCliffKnife = (ModSword)(new ModSword(tierThree).setUnlocalizedName("sword_cliffknife"));
+		swordCliffKnife.setRegistryName("sword_cliffknife");
+		ForgeRegistries.ITEMS.register(swordCliffKnife);
+		
 		swordBroadsword = (ModSword)(new ModSword(tierThree).setUnlocalizedName("sword_broadsword"));
 		swordBroadsword.setRegistryName("sword_broadsword");
 		ForgeRegistries.ITEMS.register(swordBroadsword);
@@ -378,6 +398,14 @@ public class Main
 		swordSax = (ModSword)(new ModSword(tierFour).setUnlocalizedName("sword_sax"));
 		swordSax.setRegistryName("sword_sax");
 		ForgeRegistries.ITEMS.register(swordSax);
+		
+		swordChopper = (ModSword)(new ModSword(tierFour).setUnlocalizedName("sword_chopper"));
+		swordChopper.setRegistryName("sword_chopper");
+		ForgeRegistries.ITEMS.register(swordChopper);
+		
+		swordSandBreaker = (ModSword)(new ModSword(tierFour).setUnlocalizedName("sword_sandbreaker"));
+		swordSandBreaker.setRegistryName("sword_sandbreaker");
+		ForgeRegistries.ITEMS.register(swordSandBreaker);
 		
 		swordKitchenKnife = (ModSword)(new ModSword(tierFour).setUnlocalizedName("sword_kitchenknife"));
 		swordKitchenKnife.setRegistryName("sword_kitchenknife");
