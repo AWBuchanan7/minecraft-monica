@@ -1,7 +1,30 @@
-.gradle
-/build/
+/.gradle/
+/.metadata/
+/.settings/
+/assets/
 /bin/
-
+/run/
+/build/
+/config/
+/crash-reports/
+/logs/
+/mods/
+/debug/
+/resourcepacks/
+/saves/
+/.classpath
+/.project
+/options.txt
+/screenshots
+/*.txt
+/*.log
+/server.properties
+/world
+/usernamecache.json
+/usercache.json
+/asm
+/eclipse/
+*.launch
 # Ignore Gradle GUI config
 gradle-app.setting
 
