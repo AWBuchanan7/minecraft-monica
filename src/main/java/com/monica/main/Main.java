@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.monica.roguelike.ItemCrystal;
 import com.monica.roguelike.ItemSwords;
+import com.monica.roguelike.SettingsLootRules;
 
 import greymerk.roguelike.dungeon.Dungeon;
 import greymerk.roguelike.util.IWeighted;
@@ -44,8 +45,8 @@ public class Main
 
 	public static Logger logger;
 
-	//TODO: Gladius, Cliff Knife, Chopper, Sand Breaker
-	public static Item swordGladius, swordBaselard, swordCliffKnife, swordBroadsword, swordSax, swordChopper, swordSandBreaker, swordKitchenKnife, swordWiseOwl, swordChoora, swordSerpentSlicer, swordSevenBranch,
+	//TODO: Chopper, Sand Breaker
+	public static Item swordLongSword, swordGladius, swordBaselard, swordBastard, swordCliffKnife, swordBroadsword, swordShamshir, swordSax, swordChopper, swordSandBreaker, swordKitchenKnife, swordWiseOwl, swordChoora, swordSerpentSlicer, swordSevenBranch,
 	swordTsukikage, swordLambs, swordSmall, swordSargatanas, swordDarkCloud;
 
 	public static Item crystalAttack, crystalAttackSpectrumized, crystalBeast, crystalBeastSpectrumized, crystalChill, crystalChillSpectrumized, crystalCyclone, crystalCycloneSpectrumized,
@@ -120,13 +121,14 @@ public class Main
 	@EventHandler
 	public void postInit(FMLPreInitializationEvent event)
 	{
-		for(int i = 0; i < 5; ++i) {
-			IWeighted<ItemStack> itemCrystal = new ItemCrystal(0, i);
-			Dungeon.addLootRule(itemCrystal, i, true, 3);
-			
-			IWeighted<ItemStack> itemSword = new ItemSwords(0, i);
-			Dungeon.addLootRule(itemSword, i, true, 1);
-		}
+//		for(int i = 0; i < 5; ++i) {
+//			IWeighted<ItemStack> itemCrystal = new ItemCrystal(0, i);
+//			Dungeon.addLootRule(itemCrystal, i, true, 3);
+//			
+//			IWeighted<ItemStack> itemSword = new ItemSwords(0, i);
+//			Dungeon.addLootRule(itemSword, i, true, 1);
+//		}
+		Dungeon.addDungeonSettings(new SettingsLootRules());
 	}
 	
 	@Mod.EventBusSubscriber(modid = Main.MODID)
@@ -147,18 +149,27 @@ public class Main
 	private void assignSwordModels() {
 		final int DEFAULT_ITEM_SUBTYPE = 0;
 		
-		ModelResourceLocation itemModelResourceLocation = new ModelResourceLocation("monica:sword_gladius");
+		ModelResourceLocation itemModelResourceLocation = new ModelResourceLocation("monica:sword_longsword");
+		ModelLoader.setCustomModelResourceLocation(swordLongSword, DEFAULT_ITEM_SUBTYPE, itemModelResourceLocation);
+		
+		itemModelResourceLocation = new ModelResourceLocation("monica:sword_gladius");
 		ModelLoader.setCustomModelResourceLocation(swordGladius, DEFAULT_ITEM_SUBTYPE, itemModelResourceLocation);
 		
 		itemModelResourceLocation = new ModelResourceLocation("monica:sword_baselard");
 		ModelLoader.setCustomModelResourceLocation(swordBaselard, DEFAULT_ITEM_SUBTYPE, itemModelResourceLocation);
 
+		itemModelResourceLocation = new ModelResourceLocation("monica:sword_bastard");
+		ModelLoader.setCustomModelResourceLocation(swordBastard, DEFAULT_ITEM_SUBTYPE, itemModelResourceLocation);
+				
 		itemModelResourceLocation = new ModelResourceLocation("monica:sword_cliffknife");
 		ModelLoader.setCustomModelResourceLocation(swordCliffKnife, DEFAULT_ITEM_SUBTYPE, itemModelResourceLocation);
 		
 		itemModelResourceLocation = new ModelResourceLocation("monica:sword_broadsword");
 		ModelLoader.setCustomModelResourceLocation(swordBroadsword, DEFAULT_ITEM_SUBTYPE, itemModelResourceLocation);
 
+		itemModelResourceLocation = new ModelResourceLocation("monica:sword_shamshir");
+		ModelLoader.setCustomModelResourceLocation(swordShamshir, DEFAULT_ITEM_SUBTYPE, itemModelResourceLocation);
+		
 		itemModelResourceLocation = new ModelResourceLocation("monica:sword_sax");
 		ModelLoader.setCustomModelResourceLocation(swordSax, DEFAULT_ITEM_SUBTYPE, itemModelResourceLocation);
 		
@@ -371,6 +382,10 @@ public class Main
 		/*
 		 * TIER TWO
 		 */
+		swordLongSword = (ModSword)(new ModSword(tierTwo).setUnlocalizedName("sword_longsword"));
+		swordLongSword.setRegistryName("sword_longsword");
+		ForgeRegistries.ITEMS.register(swordLongSword);
+		
 		swordGladius = (ModSword)(new ModSword(tierTwo).setUnlocalizedName("sword_gladius"));
 		swordGladius.setRegistryName("sword_gladius");
 		ForgeRegistries.ITEMS.register(swordGladius);
@@ -383,6 +398,10 @@ public class Main
 		 * TIER THREE
 		 */
 
+		swordBastard = (ModSword)(new ModSword(tierThree).setUnlocalizedName("sword_bastard"));
+		swordBastard.setRegistryName("sword_bastard");
+		ForgeRegistries.ITEMS.register(swordBastard);
+		
 		swordCliffKnife = (ModSword)(new ModSword(tierThree).setUnlocalizedName("sword_cliffknife"));
 		swordCliffKnife.setRegistryName("sword_cliffknife");
 		ForgeRegistries.ITEMS.register(swordCliffKnife);
@@ -395,6 +414,10 @@ public class Main
 		 * TIER FOUR
 		 */
 
+		swordShamshir = (ModSword)(new ModSword(tierFour).setUnlocalizedName("sword_shamshir"));
+		swordShamshir.setRegistryName("sword_shamshir");
+		ForgeRegistries.ITEMS.register(swordShamshir);
+		
 		swordSax = (ModSword)(new ModSword(tierFour).setUnlocalizedName("sword_sax"));
 		swordSax.setRegistryName("sword_sax");
 		ForgeRegistries.ITEMS.register(swordSax);

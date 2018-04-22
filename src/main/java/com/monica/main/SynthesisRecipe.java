@@ -40,6 +40,9 @@ public class SynthesisRecipe extends IForgeRegistryEntry.Impl<IRecipe> implement
 
 				if (itemStack.getItem() != null && (ModSword.class.isInstance(((Object)itemStack.getItem())))) {
 					oldSword = itemStack;
+					if (oldSword.getTagCompound() == null) {
+						((ModSword)oldSword.getItem()).initSynthesis(oldSword);
+					}
 				}
 
 				for (Item crystal : synthesisCrystals) {

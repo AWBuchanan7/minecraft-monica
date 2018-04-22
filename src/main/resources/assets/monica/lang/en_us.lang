@@ -1,9 +1,12 @@
+item.sword_longsword.name=Long Sword
 item.sword_gladius.name=Gladius
 item.sword_baselard.name=Baselard
 
+item.sword_bastard.name=Bastard Sword
 item.sword_cliffknife.name=Cliff Knife
 item.sword_broadsword.name=Broad Sword
 
+item.sword_shamshir.name=Shamshir
 item.sword_sax.name=Sax
 item.sword_chopper.name=Chopper
 item.sword_sandbreaker.name=Sand Breaker

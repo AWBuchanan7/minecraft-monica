@@ -77,6 +77,20 @@ public class BuildUpRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements 
 		/*
 		 * TIER TWO
 		 */
+		if (((ModSword)sword).getSwordName() == "sword_longsword"
+				&& attackValue > 20.0F
+				&& smashValue > 18.0F
+				&& beastValue > 13.0F) {
+			finalResult = new ItemStack(Main.swordBastard);
+		}
+		
+		if (((ModSword)sword).getSwordName() == "sword_longsword"
+				&& attackValue > 19.0F
+				&& cycloneValue > 18.0F
+				&& exorcismValue > 18.0F) {
+			finalResult = new ItemStack(Main.swordBroadsword);
+		}
+		
 		if (((ModSword)sword).getSwordName() == "sword_gladius"
 				&& attackValue > 19.0F
 				&& cycloneValue > 13.0F
@@ -94,6 +108,14 @@ public class BuildUpRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements 
 		/*
 		 * TIER THREE
 		 */
+		if (((ModSword)sword).getSwordName() == "sword_bastard"
+				&& attackValue > 30.0F
+				&& flameValue > 22.0F
+				&& lightningValue > 8.0F
+				&& exorcismValue > 8.0F) {
+			finalResult = new ItemStack(Main.swordSandBreaker);
+		}
+		
 		if (((ModSword)sword).getSwordName() == "sword_cliffknife"
 				&& attackValue > 28.0F
 				&& cycloneValue > 26.0F

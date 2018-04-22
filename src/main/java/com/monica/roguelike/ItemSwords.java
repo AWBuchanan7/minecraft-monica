@@ -19,83 +19,83 @@ public class ItemSwords extends ItemBase {
 
 	@Override
 	public ItemStack getLootItem(Random rand, int level) {
-
+		Item sword = null;
 		if (level == 0) {
-			int emptyCheck = rand.nextInt(2);
-			if (emptyCheck == 0) return null;
-
-			Item sword;
-			switch(rand.nextInt(2)) {
-			case 0: sword = Main.swordBaselard;
-			default: sword = Main.swordGladius;
+			switch(rand.nextInt(4)) {
+			case 0: sword = Main.swordBaselard; break;
+			case 1: sword = Main.swordGladius; break;
+			case 2: sword = Main.swordLongSword; break;
+			default: return null;
 			}
 			
 			ItemStack swordStack = new ItemStack(sword);
 			((ModSword)sword).initSynthesis(swordStack);
 			swordStack.getTagCompound().setFloat("Attack", 5);
 			swordStack.getTagCompound().setFloat(getRandomStat(rand.nextInt(10) + 1), 5);
+			swordStack.getTagCompound().setFloat(getRandomStat(rand.nextInt(10) + 1), 5);
 			return swordStack;
 		}
-
+		// ------------------------------------------------------------------------------------
 		if (level == 1 || level == 2) {
-			int emptyCheck = rand.nextInt(3);
-			if (emptyCheck == 0) return null;
-
-			if (rand.nextInt(20) == 1) {
-				Item sword = Main.swordBroadsword;
-				ItemStack y = new ItemStack(sword);
-				((ModSword)sword).initSynthesis(y);
-				y.getTagCompound().setFloat("Attack", 10);
-				y.getTagCompound().setFloat(getRandomStat(rand.nextInt(10) + 1), 5);
-				y.getTagCompound().setFloat(getRandomStat(rand.nextInt(10) + 1), 8);
-				return y;
-			}
-
-			ItemStack x = new ItemStack(Main.swordBroadsword);
-			switch(rand.nextInt(12)) {
-			case 0: x = new ItemStack(Main.swordSax);
-			case 1: x = new ItemStack(Main.swordKitchenKnife);
-			case 2: x = new ItemStack(Main.swordWiseOwl);
-			case 3: x = new ItemStack(Main.swordBroadsword);
-			case 4: x = new ItemStack(Main.swordBroadsword);
-			case 5: x = new ItemStack(Main.swordBroadsword);
-			default: x = new ItemStack(Main.swordBaselard);
-			(new ModSword(ToolMaterial.STONE)).initSynthesis(x);
-			x.getTagCompound().setFloat("Attack", 15);
-			return x;
+			switch(rand.nextInt(8)) {
+			case 0: sword = Main.swordGladius; break;
+			case 1: sword = Main.swordBaselard; break;
+			case 2: sword = Main.swordLongSword; break;
+			case 3: sword = Main.swordBastard; break;
+			case 4: sword = Main.swordCliffKnife; break;
+			case 5: sword = Main.swordBroadsword; break;
+			default: return null;
 			}
 			
-		} else { // Level 3-5
-			int emptyCheck = rand.nextInt(3);
-			if (emptyCheck == 0) return null;
-			
-			ItemStack x = new ItemStack(Main.swordBroadsword);
-			switch(rand.nextInt(10)) {
-			case 0: x = new ItemStack(Main.swordSax);
-			case 1: x = new ItemStack(Main.swordKitchenKnife);
-			case 2: x = new ItemStack(Main.swordWiseOwl);
-			case 3: x = new ItemStack(Main.swordSerpentSlicer);
-			case 4: x = new ItemStack(Main.swordChoora);
-			default: x = new ItemStack(Main.swordBroadsword);
-			(new ModSword(ToolMaterial.STONE)).initSynthesis(x);
-			x.getTagCompound().setFloat("Attack", 15);
-			return x;
+			ItemStack swordStack = new ItemStack(sword);
+			((ModSword)sword).initSynthesis(swordStack);
+			swordStack.getTagCompound().setFloat("Attack", 9);
+			swordStack.getTagCompound().setFloat(getRandomStat(rand.nextInt(10) + 1), 5);
+			swordStack.getTagCompound().setFloat(getRandomStat(rand.nextInt(10) + 1), 5);
+			return swordStack;
+		}
+		// ------------------------------------------------------------------------------------
+		if (level == 3) {
+			switch(rand.nextInt(3)) {
+			case 0: sword = Main.swordCliffKnife; break;
+			case 1: sword = Main.swordBroadsword; break;
+			default: return null;
 			}
+			
+			ItemStack swordStack = new ItemStack(sword);
+			((ModSword)sword).initSynthesis(swordStack);
+			swordStack.getTagCompound().setFloat("Attack", 9);
+			swordStack.getTagCompound().setFloat(getRandomStat(rand.nextInt(10) + 1), 5);
+			swordStack.getTagCompound().setFloat(getRandomStat(rand.nextInt(10) + 1), 5);
+			return swordStack;
+		}
+		// ------------------------------------------------------------------------------------
+		else {
+			switch(rand.nextInt(3)) {
+			case 0: sword = Main.swordCliffKnife; break;
+			case 1: sword = Main.swordBroadsword; break;
+			default: return null;
+			}
+			
+			if (rand.nextInt(16) == 1) {
+				switch(rand.nextInt(3)) {
+				case 0: sword = Main.swordSax; break;
+				case 1: sword = Main.swordKitchenKnife; break;
+				default: sword = Main.swordWiseOwl;
+				}
+			}
+			
+			ItemStack swordStack = new ItemStack(sword);
+			((ModSword)sword).initSynthesis(swordStack);
+			swordStack.getTagCompound().setFloat("Attack", 9);
+			swordStack.getTagCompound().setFloat(getRandomStat(rand.nextInt(10) + 1), 9);
+			swordStack.getTagCompound().setFloat(getRandomStat(rand.nextInt(10) + 1), 9);
+			return swordStack;
+		// ------------------------------------------------------------------------------------
 		}
 	}
 
 	private String getRandomStat(int i) {
-		switch(i) {
-		case 0: return synthesisStats[0];
-		case 1: return synthesisStats[1];
-		case 2: return synthesisStats[2];
-		case 3: return synthesisStats[3];
-		case 4: return synthesisStats[4];
-		case 5: return synthesisStats[5];
-		case 6: return synthesisStats[6];
-		case 7: return synthesisStats[7];
-		case 8: return synthesisStats[8];
-		default: return synthesisStats[9];
-		}
+		return synthesisStats[i];
 	}
 }
