@@ -7,6 +7,8 @@ import org.apache.logging.log4j.Logger;
 import com.monica.roguelike.SettingsLootRules;
 
 import greymerk.roguelike.dungeon.Dungeon;
+import greymerk.roguelike.dungeon.DungeonStage;
+import greymerk.roguelike.dungeon.tasks.DungeonTaskRegistry;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -118,14 +120,8 @@ public class Main
 	@EventHandler
 	public void postInit(FMLPreInitializationEvent event)
 	{
-//		for(int i = 0; i < 5; ++i) {
-//			IWeighted<ItemStack> itemCrystal = new ItemCrystal(0, i);
-//			Dungeon.addLootRule(itemCrystal, i, true, 3);
-//			
-//			IWeighted<ItemStack> itemSword = new ItemSwords(0, i);
-//			Dungeon.addLootRule(itemSword, i, true, 1);
-//		}
-		Dungeon.addDungeonSettings(new SettingsLootRules());
+		DungeonTaskRegistry tasks = Dungeon.getTaskRegistry();
+    	tasks.addTask(new SettingsLootRules(), DungeonStage.LOOT);
 	}
 	
 	@Mod.EventBusSubscriber(modid = Main.MODID)

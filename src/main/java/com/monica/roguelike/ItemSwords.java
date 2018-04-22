@@ -20,7 +20,8 @@ public class ItemSwords extends ItemBase {
 	public ItemStack getLootItem(Random rand, int level) {
 		Item sword = null;
 		if (level == 0) {
-			switch(rand.nextInt(4)) {
+			
+			switch(rand.nextInt(5)) {
 			case 0: sword = Main.swordBaselard; break;
 			case 1: sword = Main.swordGladius; break;
 			case 2: sword = Main.swordLongSword; break;
@@ -30,8 +31,8 @@ public class ItemSwords extends ItemBase {
 			ItemStack swordStack = new ItemStack(sword);
 			((ModSword)sword).initSynthesis(swordStack);
 			swordStack.getTagCompound().setFloat("Attack", 5);
-			swordStack.getTagCompound().setFloat(getRandomStat(rand.nextInt(10) + 1), 5);
-			swordStack.getTagCompound().setFloat(getRandomStat(rand.nextInt(10) + 1), 5);
+			swordStack.getTagCompound().setFloat(getRandomStat(rand.nextInt(10)), 5);
+			swordStack.getTagCompound().setFloat(getRandomStat(rand.nextInt(10)), 5);
 			return swordStack;
 		}
 		// ------------------------------------------------------------------------------------
@@ -49,8 +50,8 @@ public class ItemSwords extends ItemBase {
 			ItemStack swordStack = new ItemStack(sword);
 			((ModSword)sword).initSynthesis(swordStack);
 			swordStack.getTagCompound().setFloat("Attack", 9);
-			swordStack.getTagCompound().setFloat(getRandomStat(rand.nextInt(10) + 1), 5);
-			swordStack.getTagCompound().setFloat(getRandomStat(rand.nextInt(10) + 1), 5);
+			swordStack.getTagCompound().setFloat(getRandomStat(rand.nextInt(10)), 5);
+			swordStack.getTagCompound().setFloat(getRandomStat(rand.nextInt(10)), 5);
 			return swordStack;
 		}
 		// ------------------------------------------------------------------------------------
@@ -64,8 +65,8 @@ public class ItemSwords extends ItemBase {
 			ItemStack swordStack = new ItemStack(sword);
 			((ModSword)sword).initSynthesis(swordStack);
 			swordStack.getTagCompound().setFloat("Attack", 9);
-			swordStack.getTagCompound().setFloat(getRandomStat(rand.nextInt(10) + 1), 5);
-			swordStack.getTagCompound().setFloat(getRandomStat(rand.nextInt(10) + 1), 5);
+			swordStack.getTagCompound().setFloat(getRandomStat(rand.nextInt(10)), 5);
+			swordStack.getTagCompound().setFloat(getRandomStat(rand.nextInt(10)), 5);
 			return swordStack;
 		}
 		// ------------------------------------------------------------------------------------
@@ -87,8 +88,8 @@ public class ItemSwords extends ItemBase {
 			ItemStack swordStack = new ItemStack(sword);
 			((ModSword)sword).initSynthesis(swordStack);
 			swordStack.getTagCompound().setFloat("Attack", 9);
-			swordStack.getTagCompound().setFloat(getRandomStat(rand.nextInt(10) + 1), 9);
-			swordStack.getTagCompound().setFloat(getRandomStat(rand.nextInt(10) + 1), 9);
+			swordStack.getTagCompound().setFloat(getRandomStat(rand.nextInt(10)), 9);
+			swordStack.getTagCompound().setFloat(getRandomStat(rand.nextInt(10)), 9);
 			return swordStack;
 		// ------------------------------------------------------------------------------------
 		}

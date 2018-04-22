@@ -1,29 +1,35 @@
 package com.monica.roguelike;
 
-import greymerk.roguelike.dungeon.settings.DungeonSettings;
+import java.util.List;
+import java.util.Random;
+
+import greymerk.roguelike.dungeon.IDungeon;
+import greymerk.roguelike.dungeon.settings.ISettings;
 import greymerk.roguelike.dungeon.settings.SettingIdentifier;
 import greymerk.roguelike.dungeon.settings.SettingsContainer;
-import greymerk.roguelike.treasure.loot.LootRuleManager;
-import greymerk.roguelike.util.IWeighted;
-import net.minecraft.item.ItemStack;
+import greymerk.roguelike.dungeon.tasks.IDungeonTask;
+import greymerk.roguelike.treasure.ITreasureChest;
+import greymerk.roguelike.worldgen.IWorldEditor;
 
-public class SettingsLootRules extends DungeonSettings {
+public class SettingsLootRules implements IDungeonTask {
 	
 	public static final SettingIdentifier ID = new SettingIdentifier(SettingsContainer.DEFAULT_NAMESPACE, "monicaloot");
 	
-	public SettingsLootRules(){
-		this.id = ID;
-		this.lootRules = new LootRuleManager();
+	@Override
+	public void execute(IWorldEditor editor, Random rand, IDungeon dungeon, ISettings settings) {
+		List<ITreasureChest> chests = dungeon.getChests();
 		
-		for(int i = 0; i < 5; ++i) {
-			IWeighted<ItemStack> itemCrystal = new ItemCrystal(0, i);
-			lootRules.add(null, itemCrystal,  i, true, 3);
+		for(ITreasureChest chest : chests) {
 			
-			IWeighted<ItemStack> itemSword = new ItemSwords(0, i);			
-			lootRules.add(null, itemSword,  i, true, 1);
+			ItemCrystal itemCrystal = new ItemCrystal(0, chest.getLevel());
+			chest.setRandomEmptySlot(itemCrystal.getLootItem(rand, chest.getLevel()));
+			chest.setRandomEmptySlot(itemCrystal.getLootItem(rand, chest.getLevel()));
+			chest.setRandomEmptySlot(itemCrystal.getLootItem(rand, chest.getLevel()));
 			
+			ItemSwords itemSword = new ItemSwords(0, chest.getLevel());
+			chest.setRandomEmptySlot(itemSword.getLootItem(rand, chest.getLevel()));
 		}
-		
+
 	}
 
 }
