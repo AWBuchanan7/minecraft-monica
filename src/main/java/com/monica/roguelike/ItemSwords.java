@@ -6,7 +6,6 @@ import com.monica.main.ModSword;
 
 import greymerk.roguelike.treasure.loot.provider.ItemBase;
 import net.minecraft.item.Item;
-import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemStack;
 
 public class ItemSwords extends ItemBase {

@@ -4,12 +4,9 @@ import javax.annotation.Nullable;
 
 import org.apache.logging.log4j.Logger;
 
-import com.monica.roguelike.ItemCrystal;
-import com.monica.roguelike.ItemSwords;
 import com.monica.roguelike.SettingsLootRules;
 
 import greymerk.roguelike.dungeon.Dungeon;
-import greymerk.roguelike.util.IWeighted;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
