@@ -23,6 +23,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -43,7 +44,8 @@ public class Main
 	public static final String MODID = "monica";
 	public static final String NAME = "Supersaix Monica";
 	public static final String VERSION = "0.1A";
-
+	
+	public static boolean roguelikeDungeons;
 	public static Logger logger;
 
 	@EventHandler
@@ -68,13 +70,17 @@ public class Main
 		addBasicShapelessRecipe(CrystalRegistry.crystalLightning, CrystalRegistry.crystalLightningSpectrumized);
 		addBasicShapelessRecipe(CrystalRegistry.crystalScale, CrystalRegistry.crystalScaleSpectrumized);
 		addBasicShapelessRecipe(CrystalRegistry.crystalSmash, CrystalRegistry.crystalSmashSpectrumized);
+		
+		roguelikeDungeons = Loader.isModLoaded("roguelike");
 	}
 	
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
-		DungeonTaskRegistry tasks = Dungeon.getTaskRegistry();
-    	tasks.addTask(new SettingsLootRules(), DungeonStage.LOOT);
+		if (roguelikeDungeons) {
+			DungeonTaskRegistry tasks = Dungeon.getTaskRegistry();
+	    	tasks.addTask(new SettingsLootRules(), DungeonStage.LOOT);
+		}
 	}
 	
 	
