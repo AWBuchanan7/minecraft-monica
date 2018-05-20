@@ -1,4 +1,4 @@
-package com.monica.main;
+package supersaix.monica.main;
 
 import java.util.List;
 import java.util.UUID;

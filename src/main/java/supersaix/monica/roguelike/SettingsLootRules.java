@@ -1,4 +1,4 @@
-package com.monica.roguelike;
+package supersaix.monica.roguelike;
 
 import java.util.List;
 import java.util.Random;

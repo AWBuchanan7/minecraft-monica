@@ -1,4 +1,4 @@
-package com.monica.main;
+package supersaix.monica.main;
 
 import net.minecraft.init.Items;
 import net.minecraft.inventory.InventoryCrafting;
@@ -9,12 +9,14 @@ import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraftforge.registries.IForgeRegistryEntry;
+import supersaix.monica.registry.CrystalRegistry;
+import supersaix.monica.registry.SwordRegistry;
 
 public class BuildUpRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements IRecipe {
 	private String[] synthesisStats = {"Attack", "Durable", "Flame", "Chill", "Lightning", "Cyclone", "Smash", "Exorcism", "Beast", "Scale"};
 	private NBTBase nbt = new NBTTagCompound();
 	private Item sword = null;
-	ItemStack finalResult = new ItemStack(Main.crystalDurableSpectrumized);
+	ItemStack finalResult = new ItemStack(CrystalRegistry.crystalDurableSpectrumized);
 		
 	@Override
 	public boolean matches(InventoryCrafting inventory, World world) {
@@ -76,28 +78,28 @@ public class BuildUpRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements 
 				&& attackValue > 20.0F
 				&& smashValue > 18.0F
 				&& beastValue > 13.0F) {
-			finalResult = new ItemStack(Main.swordBastard);
+			finalResult = new ItemStack(SwordRegistry.swordBastard);
 		}
 		
 		if (((ModSword)sword).getSwordName() == "sword_longsword"
 				&& attackValue > 19.0F
 				&& cycloneValue > 18.0F
 				&& exorcismValue > 18.0F) {
-			finalResult = new ItemStack(Main.swordBroadsword);
+			finalResult = new ItemStack(SwordRegistry.swordBroadsword);
 		}
 		
 		if (((ModSword)sword).getSwordName() == "sword_gladius"
 				&& attackValue > 19.0F
 				&& cycloneValue > 13.0F
 				&& beastValue > 13.0F) {
-			finalResult = new ItemStack(Main.swordCliffKnife);
+			finalResult = new ItemStack(SwordRegistry.swordCliffKnife);
 		}
 		
 		if (((ModSword)sword).getSwordName() == "sword_baselard"
 				&& attackValue > 19.0F
 				&& cycloneValue > 18.0F
 				&& exorcismValue > 18.0F) {
-			finalResult = new ItemStack(Main.swordBroadsword);
+			finalResult = new ItemStack(SwordRegistry.swordBroadsword);
 		}
 		
 		/*
@@ -108,21 +110,21 @@ public class BuildUpRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements 
 				&& flameValue > 22.0F
 				&& lightningValue > 8.0F
 				&& exorcismValue > 8.0F) {
-			finalResult = new ItemStack(Main.swordSandBreaker);
+			finalResult = new ItemStack(SwordRegistry.swordSandBreaker);
 		}
 		
 		if (((ModSword)sword).getSwordName() == "sword_cliffknife"
 				&& attackValue > 28.0F
 				&& cycloneValue > 26.0F
 				&& beastValue > 35.0F) {
-			finalResult = new ItemStack(Main.swordChopper);
+			finalResult = new ItemStack(SwordRegistry.swordChopper);
 		}
 		if (((ModSword)sword).getSwordName() == "sword_cliffknife"
 				&& attackValue > 30.0F
 				&& flameValue > 22.0F
 				&& lightningValue > 8.0F
 				&& exorcismValue > 8.0F) {
-			finalResult = new ItemStack(Main.swordSandBreaker);
+			finalResult = new ItemStack(SwordRegistry.swordSandBreaker);
 		}
 		
 		if (((ModSword)sword).getSwordName() == "sword_broadsword"
@@ -131,7 +133,7 @@ public class BuildUpRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements 
 				&& beastValue > 27.0F
 				&& exorcismValue > 18.0F
 				&& scaleValue > 8.0F) {
-			finalResult = new ItemStack(Main.swordSax);
+			finalResult = new ItemStack(SwordRegistry.swordSax);
 		}
 		
 		if (((ModSword)sword).getSwordName() == "sword_broadsword"
@@ -139,7 +141,7 @@ public class BuildUpRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements 
 				&& chillValue > 4.0F
 				&& lightningValue > 13.0F
 				&& scaleValue > 26.0F) {
-			finalResult = new ItemStack(Main.swordKitchenKnife);
+			finalResult = new ItemStack(SwordRegistry.swordKitchenKnife);
 		}
 		
 		if (((ModSword)sword).getSwordName() == "sword_broadsword"
@@ -147,7 +149,7 @@ public class BuildUpRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements 
 				&& flameValue > 13.0F
 				&& scaleValue > 13.0F
 				&& beastValue > 22.0F) {
-			finalResult = new ItemStack(Main.swordWiseOwl);
+			finalResult = new ItemStack(SwordRegistry.swordWiseOwl);
 		}
 		
 		/*
@@ -158,14 +160,14 @@ public class BuildUpRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements 
 				&& cycloneValue > 49.0F
 				&& beastValue > 49.0F
 				&& scaleValue > 40.0F) {
-			finalResult = new ItemStack(Main.swordChoora);
+			finalResult = new ItemStack(SwordRegistry.swordChoora);
 		}
 		
 		if (((ModSword)sword).getSwordName() == "sword_kitchenknife"
 				&& attackValue > 48.0F
 				&& lightningValue > 49.0F
 				&& scaleValue > 49.0F) {
-			finalResult = new ItemStack(Main.swordSerpentSlicer);
+			finalResult = new ItemStack(SwordRegistry.swordSerpentSlicer);
 		}
 		
 		if (((ModSword)sword).getSwordName() == "sword_wiseowl"
@@ -173,7 +175,7 @@ public class BuildUpRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements 
 				&& cycloneValue > 76.0F
 				&& beastValue > 76.0F
 				&& exorcismValue > 14.0F) {
-			finalResult = new ItemStack(Main.swordLambs);
+			finalResult = new ItemStack(SwordRegistry.swordLambs);
 		}
 		
 		if (((ModSword)sword).getSwordName() == "sword_wiseowl"
@@ -183,7 +185,7 @@ public class BuildUpRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements 
 				&& beastValue > 53.0F
 				&& scaleValue > 53.0F
 				&& exorcismValue > 53.0F) {
-			finalResult = new ItemStack(Main.swordSmall);
+			finalResult = new ItemStack(SwordRegistry.swordSmall);
 		}
 		
 		/*
@@ -196,14 +198,14 @@ public class BuildUpRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements 
 				&& smashValue > 44.0F
 				&& exorcismValue > 44.0F
 				&& beastValue > 44.0F) {
-			finalResult = new ItemStack(Main.swordSevenBranch);
+			finalResult = new ItemStack(SwordRegistry.swordSevenBranch);
 		}
 		
 		if (((ModSword)sword).getSwordName() == "sword_serpentslicer"
 				&& attackValue > 79.0F
 				&& lightningValue > 89.0F
 				&& scaleValue > 89.0F) {
-			finalResult = new ItemStack(Main.swordTsukikage);
+			finalResult = new ItemStack(SwordRegistry.swordTsukikage);
 		}
 		
 		if (((ModSword)sword).getSwordName() == "sword_serpentslicer"
@@ -211,7 +213,7 @@ public class BuildUpRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements 
 				&& chillValue > 80.0F
 				&& smashValue > 80.0F
 				&& scaleValue > 71.0F) {
-			finalResult = new ItemStack(Main.swordSargatanas);
+			finalResult = new ItemStack(SwordRegistry.swordSargatanas);
 		}
 		
 		finalResult.setTagCompound((NBTTagCompound) nbt);

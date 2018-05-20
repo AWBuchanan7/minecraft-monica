@@ -1,4 +1,4 @@
-package com.monica.main;
+package supersaix.monica.main;
 
 import java.util.Arrays;
 import java.util.Iterator;
@@ -11,18 +11,19 @@ import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraftforge.registries.IForgeRegistryEntry;
+import supersaix.monica.registry.CrystalRegistry;
 
 public class SynthesisRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements IRecipe {
 
 	private String[] synthesisStats = {"Attack", "Durable", "Flame", "Chill", "Lightning", "Cyclone", "Smash", "Exorcism", "Beast", "Scale"};
-	private Item[] synthesisCrystals = {Main.crystalAttackSpectrumized, Main.crystalDurableSpectrumized, Main.crystalFlameSpectrumized, Main.crystalChillSpectrumized,
-			Main.crystalLightningSpectrumized, Main.crystalCycloneSpectrumized, Main.crystalSmashSpectrumized, Main.crystalExorcismSpectrumized,
-			Main.crystalBeastSpectrumized, Main.crystalScaleSpectrumized};
+	private Item[] synthesisCrystals = {CrystalRegistry.crystalAttackSpectrumized, CrystalRegistry.crystalDurableSpectrumized, CrystalRegistry.crystalFlameSpectrumized,
+			CrystalRegistry.crystalChillSpectrumized, CrystalRegistry.crystalLightningSpectrumized, CrystalRegistry.crystalCycloneSpectrumized,
+			CrystalRegistry.crystalSmashSpectrumized, CrystalRegistry.crystalExorcismSpectrumized, CrystalRegistry.crystalBeastSpectrumized, CrystalRegistry.crystalScaleSpectrumized};
 
 	private NBTBase nbt = new NBTTagCompound();
 	private Item sword = null;
 	ItemStack synthCrystal = null;
-	ItemStack finalResult = new ItemStack(Main.crystalDurableSpectrumized);
+	ItemStack finalResult = new ItemStack(CrystalRegistry.crystalDurableSpectrumized);
 	
 	@Override
 	public boolean matches(InventoryCrafting inventory, World world) {
