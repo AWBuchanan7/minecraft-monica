@@ -22,7 +22,7 @@ public class ItemSwords extends ItemBase {
 		Item sword = null;
 		if (level == 0) {
 			
-			switch(rand.nextInt(5)) {
+			switch(rand.nextInt(6)) {
 			case 0: sword = SwordRegistry.swordBaselard; break;
 			case 1: sword = SwordRegistry.swordGladius; break;
 			case 2: sword = SwordRegistry.swordLongSword; break;
@@ -38,7 +38,7 @@ public class ItemSwords extends ItemBase {
 		}
 		// ------------------------------------------------------------------------------------
 		if (level == 1 || level == 2) {
-			switch(rand.nextInt(8)) {
+			switch(rand.nextInt(9)) {
 			case 0: sword = SwordRegistry.swordGladius; break;
 			case 1: sword = SwordRegistry.swordBaselard; break;
 			case 2: sword = SwordRegistry.swordLongSword; break;
@@ -57,7 +57,7 @@ public class ItemSwords extends ItemBase {
 		}
 		// ------------------------------------------------------------------------------------
 		if (level == 3) {
-			switch(rand.nextInt(3)) {
+			switch(rand.nextInt(4)) {
 			case 0: sword = SwordRegistry.swordCliffKnife; break;
 			case 1: sword = SwordRegistry.swordBroadsword; break;
 			default: return null;
@@ -72,13 +72,13 @@ public class ItemSwords extends ItemBase {
 		}
 		// ------------------------------------------------------------------------------------
 		else {
-			switch(rand.nextInt(3)) {
+			switch(rand.nextInt(4)) {
 			case 0: sword = SwordRegistry.swordCliffKnife; break;
 			case 1: sword = SwordRegistry.swordBroadsword; break;
 			default: return null;
 			}
 			
-			if (rand.nextInt(16) == 1) {
+			if (rand.nextInt(18) == 1) {
 				switch(rand.nextInt(3)) {
 				case 0: sword = SwordRegistry.swordSax; break;
 				case 1: sword = SwordRegistry.swordKitchenKnife; break;
