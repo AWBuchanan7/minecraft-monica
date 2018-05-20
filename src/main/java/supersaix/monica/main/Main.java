@@ -57,48 +57,17 @@ public class Main
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event)
-	{		
-		//Add spectrumization recipes
-		GameRegistry.addShapelessRecipe(new ResourceLocation("monica:crystal_attack_spectrumized"), new ResourceLocation(""),
-				new ItemStack(CrystalRegistry.crystalAttackSpectrumized),
-				new Ingredient[] {Ingredient.fromStacks(new ItemStack(CrystalRegistry.crystalAttack))}
-				);
-		GameRegistry.addShapelessRecipe(new ResourceLocation("monica:crystal_beast_spectrumized"), new ResourceLocation(""),
-				new ItemStack(CrystalRegistry.crystalBeastSpectrumized),
-				new Ingredient[] {Ingredient.fromStacks(new ItemStack(CrystalRegistry.crystalBeast))}
-				);
-		GameRegistry.addShapelessRecipe(new ResourceLocation("monica:crystal_chill_spectrumized"), new ResourceLocation(""),
-				new ItemStack(CrystalRegistry.crystalChillSpectrumized),
-				new Ingredient[] {Ingredient.fromStacks(new ItemStack(CrystalRegistry.crystalChill))}
-				);
-		GameRegistry.addShapelessRecipe(new ResourceLocation("monica:crystal_cyclone_spectrumized"), new ResourceLocation(""),
-				new ItemStack(CrystalRegistry.crystalCycloneSpectrumized),
-				new Ingredient[] {Ingredient.fromStacks(new ItemStack(CrystalRegistry.crystalCyclone))}
-				);
-		GameRegistry.addShapelessRecipe(new ResourceLocation("monica:crystal_durable_spectrumized"), new ResourceLocation(""),
-				new ItemStack(CrystalRegistry.crystalDurableSpectrumized),
-				new Ingredient[] {Ingredient.fromStacks(new ItemStack(CrystalRegistry.crystalDurable))}
-				);
-		GameRegistry.addShapelessRecipe(new ResourceLocation("monica:crystal_exorcism_spectrumized"), new ResourceLocation(""),
-				new ItemStack(CrystalRegistry.crystalExorcismSpectrumized),
-				new Ingredient[] {Ingredient.fromStacks(new ItemStack(CrystalRegistry.crystalExorcism))}
-				);
-		GameRegistry.addShapelessRecipe(new ResourceLocation("monica:crystal_flame_spectrumized"), new ResourceLocation(""),
-				new ItemStack(CrystalRegistry.crystalFlameSpectrumized),
-				new Ingredient[] {Ingredient.fromStacks(new ItemStack(CrystalRegistry.crystalFlame))}
-				);
-		GameRegistry.addShapelessRecipe(new ResourceLocation("monica:crystal_lightning_spectrumized"), new ResourceLocation(""),
-				new ItemStack(CrystalRegistry.crystalLightningSpectrumized),
-				new Ingredient[] {Ingredient.fromStacks(new ItemStack(CrystalRegistry.crystalLightning))}
-				);
-		GameRegistry.addShapelessRecipe(new ResourceLocation("monica:crystal_scale_spectrumized"), new ResourceLocation(""),
-				new ItemStack(CrystalRegistry.crystalScaleSpectrumized),
-				new Ingredient[] {Ingredient.fromStacks(new ItemStack(CrystalRegistry.crystalScale))}
-				);
-		GameRegistry.addShapelessRecipe(new ResourceLocation("monica:crystal_smash_spectrumized"), new ResourceLocation(""),
-				new ItemStack(CrystalRegistry.crystalSmashSpectrumized),
-				new Ingredient[] {Ingredient.fromStacks(new ItemStack(CrystalRegistry.crystalSmash))}
-				);
+	{
+		addBasicShapelessRecipe(CrystalRegistry.crystalAttack, CrystalRegistry.crystalAttackSpectrumized);
+		addBasicShapelessRecipe(CrystalRegistry.crystalBeast, CrystalRegistry.crystalBeastSpectrumized);
+		addBasicShapelessRecipe(CrystalRegistry.crystalChill, CrystalRegistry.crystalChillSpectrumized);
+		addBasicShapelessRecipe(CrystalRegistry.crystalCyclone, CrystalRegistry.crystalCycloneSpectrumized);
+		addBasicShapelessRecipe(CrystalRegistry.crystalDurable, CrystalRegistry.crystalDurableSpectrumized);
+		addBasicShapelessRecipe(CrystalRegistry.crystalExorcism, CrystalRegistry.crystalExorcismSpectrumized);
+		addBasicShapelessRecipe(CrystalRegistry.crystalFlame, CrystalRegistry.crystalFlameSpectrumized);
+		addBasicShapelessRecipe(CrystalRegistry.crystalLightning, CrystalRegistry.crystalLightningSpectrumized);
+		addBasicShapelessRecipe(CrystalRegistry.crystalScale, CrystalRegistry.crystalScaleSpectrumized);
+		addBasicShapelessRecipe(CrystalRegistry.crystalSmash, CrystalRegistry.crystalSmashSpectrumized);
 	}
 	
 	@EventHandler
@@ -106,5 +75,13 @@ public class Main
 	{
 		DungeonTaskRegistry tasks = Dungeon.getTaskRegistry();
     	tasks.addTask(new SettingsLootRules(), DungeonStage.LOOT);
+	}
+	
+	
+	private static void addBasicShapelessRecipe(Item ingredient, Item result) {
+		GameRegistry.addShapelessRecipe(new ResourceLocation(MODID + result.getUnlocalizedName()), new ResourceLocation(""),
+				new ItemStack(result),
+				new Ingredient[] {Ingredient.fromStacks(new ItemStack(ingredient))}
+				);
 	}
 }

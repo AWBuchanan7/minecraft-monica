@@ -25,12 +25,13 @@ import supersaix.monica.main.ModSword;
 
 public class SwordRegistry {
 	//TODO: Chopper, Sand Breaker
-		public static ModSword swordLongSword, swordGladius, swordBaselard, swordBastard, swordCliffKnife, swordBroadsword, swordShamshir, swordSax, swordChopper, swordSandBreaker, swordKitchenKnife, swordWiseOwl, swordChoora, swordSerpentSlicer, swordSevenBranch,
-		swordTsukikage, swordLambs, swordSmall, swordSargatanas, swordDarkCloud;
+		public static ModSword swordLongSword, swordGladius, swordBaselard, swordBastard, swordCliffKnife, swordBroadsword, swordShamshir, swordSax, swordChopper,
+		swordSandBreaker, swordKitchenKnife, swordWiseOwl, swordChoora, swordSerpentSlicer, swordSevenBranch, swordTsukikage, swordLambs, swordSmall, swordSargatanas,
+		swordDarkCloud;
 		
 		public static ArrayList<ModSword> Swords = new ArrayList<ModSword>();
 
-		public static ToolMaterial tierTwo, tierThree, tierFour, tierFive, tierSix,tierSeven, tierEight, tierNine;
+		public static ToolMaterial tierTwo, tierThree, tierFour, tierFive, tierSix, tierSeven, tierEight, tierNine;
 				
 		public static void initializeSwords() {
 			/*
