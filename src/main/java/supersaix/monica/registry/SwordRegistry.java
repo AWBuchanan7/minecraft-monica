@@ -2,6 +2,7 @@ package supersaix.monica.registry;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import javax.annotation.Nullable;
 
@@ -24,14 +25,14 @@ import supersaix.monica.main.ModSword;
 
 public class SwordRegistry {
 	//TODO: Chopper, Sand Breaker
-		public static Item swordLongSword, swordGladius, swordBaselard, swordBastard, swordCliffKnife, swordBroadsword, swordShamshir, swordSax, swordChopper, swordSandBreaker, swordKitchenKnife, swordWiseOwl, swordChoora, swordSerpentSlicer, swordSevenBranch,
+		public static ModSword swordLongSword, swordGladius, swordBaselard, swordBastard, swordCliffKnife, swordBroadsword, swordShamshir, swordSax, swordChopper, swordSandBreaker, swordKitchenKnife, swordWiseOwl, swordChoora, swordSerpentSlicer, swordSevenBranch,
 		swordTsukikage, swordLambs, swordSmall, swordSargatanas, swordDarkCloud;
 		
-		public static ArrayList<Item> Swords = new ArrayList<Item>();
+		public static ArrayList<ModSword> Swords = new ArrayList<ModSword>();
 
 		public static ToolMaterial tierTwo, tierThree, tierFour, tierFive, tierSix,tierSeven, tierEight, tierNine;
-		
-		public static  void initialize() {
+				
+		public static void initializeSwords() {
 			/*
 			 * TIER TWO
 			 */
@@ -216,11 +217,26 @@ public class SwordRegistry {
 			swordDarkCloud.setRegistryName("sword_darkcloud");
 			ForgeRegistries.ITEMS.register(swordDarkCloud);
 			Swords.add(swordDarkCloud);
-
-
 		}
 		
-		public static void createToolMaterials() {
+		public static ArrayList<ModSword> getWeaponsByTier(ToolMaterial tier) {
+			ArrayList<ModSword> Results = new ArrayList<ModSword>();
+			
+			for(ModSword sword : SwordRegistry.Swords) {
+				if (sword.getToolMaterial() == tier) {
+					Results.add(sword);
+				}
+			}
+			
+			return Results;
+		}
+		
+		public static ModSword getRandomWeaponByTier(ToolMaterial tier, Random rand) {
+			ArrayList<ModSword> swords = getWeaponsByTier(tier);
+			return swords.get(rand.nextInt(swords.size()));
+		}
+		
+		public static void initializeToolMaterials() {
 			// Name, Mining Level, Uses, Mining Speed, Damage v Entity, Enchantability
 			tierTwo = EnumHelper.addToolMaterial("DC_TIER_TWO", 3, 750, 7.0F, 2.5F, 5);
 			tierThree = EnumHelper.addToolMaterial("DC_TIER_THREE", 3, 750, 7.0F, 3.0F, 5);

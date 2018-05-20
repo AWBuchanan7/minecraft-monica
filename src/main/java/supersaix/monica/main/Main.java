@@ -50,9 +50,9 @@ public class Main
 	public void preInit(FMLPreInitializationEvent event)
 	{
 		logger = event.getModLog();
-		SwordRegistry.createToolMaterials();
+		SwordRegistry.initializeToolMaterials();
 		CrystalRegistry.initialize();
-		SwordRegistry.initialize();
+		SwordRegistry.initializeSwords();
 	}
 	
 	@EventHandler
