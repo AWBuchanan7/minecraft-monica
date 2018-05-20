@@ -1,4 +1,4 @@
-package supersaix.monica.main;
+package supersaix.monica.recipe;
 
 import java.util.Arrays;
 import java.util.Iterator;
@@ -11,6 +11,7 @@ import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraftforge.registries.IForgeRegistryEntry;
+import supersaix.monica.main.ModSword;
 import supersaix.monica.registry.CrystalRegistry;
 
 public class SynthesisRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements IRecipe {

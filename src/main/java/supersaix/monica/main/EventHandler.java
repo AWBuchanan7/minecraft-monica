@@ -8,6 +8,8 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import supersaix.monica.recipe.BuildUpRecipe;
+import supersaix.monica.recipe.SynthesisRecipe;
 import supersaix.monica.registry.CrystalRegistry;
 import supersaix.monica.registry.SwordRegistry;
 

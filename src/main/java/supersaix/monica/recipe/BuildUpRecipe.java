@@ -1,4 +1,4 @@
-package supersaix.monica.main;
+package supersaix.monica.recipe;
 
 import net.minecraft.init.Items;
 import net.minecraft.inventory.InventoryCrafting;
@@ -9,6 +9,7 @@ import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraftforge.registries.IForgeRegistryEntry;
+import supersaix.monica.main.ModSword;
 import supersaix.monica.registry.CrystalRegistry;
 import supersaix.monica.registry.SwordRegistry;
 
