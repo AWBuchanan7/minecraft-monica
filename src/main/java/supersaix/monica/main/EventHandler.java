@@ -8,6 +8,8 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import supersaix.monica.recipe.BuildUpRecipe;
 import supersaix.monica.recipe.SynthesisRecipe;
 import supersaix.monica.registry.CrystalRegistry;
@@ -27,6 +29,7 @@ public class EventHandler {
 		(event.getRegistry()).register(synthesis);
 	}
 	
+	@SideOnly(Side.CLIENT)
 	@SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event){
 		final int DEFAULT_ITEM_SUBTYPE = 0;
